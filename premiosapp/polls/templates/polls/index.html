@@ -1,9 +1,40 @@
-{% if latest_question_list %}
-<ul>
-  {% for question in latest_question_list %}
-    <li><a href="{% url "polls:detail" question.id%}">{{question.question_text}}</a></li>
-  {% endfor %}
-</ul>
-{% else %}
-    <p>No polls are available</p>
-{% endif %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'polls/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'polls/style.css' %}">
+    <title>PREMIOS</title>
+</head>
+<body>
+    <header>
+        <h1>PREMIOS APP</h1>
+    </header>
+    <main>
+        {% if latest_question_list %}
+        <ul>
+        {% for question in latest_question_list %}
+            <li><a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a></li>
+        {% endfor %}
+        </ul>
+        {% else %}
+            <p>No polls are available</p>
+        {% endif %}
+    </main>
+    <footer>
+        <a href="https://platzi.com/clases/2728-django-intermedio/45826-comenzando-a-crear-un-frontend/">Platzi</a>
+        <a href="https://walink.co/925fa3">WhatsApp</a>
+        <a href="http://127.0.0.1:5501/index.html">¿Quien soy?</a>
+        <a href="">Quieres ser parte de esto?</a>
+    </footer>
+</body>
+</html>
+
+
+
+
+
